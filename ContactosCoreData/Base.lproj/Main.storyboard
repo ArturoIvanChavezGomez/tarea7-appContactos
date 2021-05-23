@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HWd-94-bGq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContactosCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9iG-ah-GeU">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" red="0.42655545473098755" green="0.084037862718105316" blue="0.099534250795841217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.42655545473098755" green="0.084037862718105316" blue="0.099534250795841217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9iG-ah-GeU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BYX-xY-Rna"/>
+                            <constraint firstItem="9iG-ah-GeU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Bal-hR-V6R"/>
+                            <constraint firstItem="9iG-ah-GeU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gss-1j-MRe"/>
+                            <constraint firstItem="9iG-ah-GeU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hza-Pi-iub"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="teN-6S-TLZ">
+                        <barButtonItem key="rightBarButtonItem" title="Add Contact" id="ABh-Uh-YBo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addContactButtonItem:" destination="BYZ-38-t0r" id="8fl-Ce-IZ0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contactsTable" destination="9iG-ah-GeU" id="OEC-UQ-oS8"/>
+                        <segue destination="ImK-Vm-a0i" kind="show" identifier="editContact" id="piX-ev-yJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="71.651785714285708"/>
+        </scene>
+        <!--Edit Contact-->
+        <scene sceneID="o05-oC-UFI">
+            <objects>
+                <viewController id="ImK-Vm-a0i" customClass="EditViewController" customModule="ContactosCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWO-1Z-H0g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="2EV-Ne-S1r">
+                                <rect key="frame" x="15" y="150" width="384" height="473"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hBD-5Q-cF3">
+                                        <rect key="frame" x="0.0" y="1.5" width="384" height="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="kGf-ES-8aE"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r78-dc-wxU">
+                                        <rect key="frame" x="0.0" y="85" width="384" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-8j-x6E">
+                                        <rect key="frame" x="0.0" y="170" width="384" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLd-VE-03v">
+                                        <rect key="frame" x="0.0" y="255" width="384" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nN-UP-cmH">
+                                        <rect key="frame" x="0.0" y="340" width="384" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-ZX-yXx">
+                                        <rect key="frame" x="0.0" y="425" width="384" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhB-0p-o5a">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="saveButton:" destination="ImK-Vm-a0i" eventType="touchUpInside" id="rUA-eR-LW7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8e-pO-1ru">
+                                                <rect key="frame" x="217" y="0.0" width="167" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="ImK-Vm-a0i" eventType="touchUpInside" id="2D3-5j-rAD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="31j-n9-4LT"/>
+                        <color key="backgroundColor" red="0.42655545473098755" green="0.084037862718105316" blue="0.099534250795841217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2EV-Ne-S1r" firstAttribute="leading" secondItem="31j-n9-4LT" secondAttribute="leading" constant="15" id="2aO-Kk-DA5"/>
+                            <constraint firstItem="31j-n9-4LT" firstAttribute="bottom" secondItem="2EV-Ne-S1r" secondAttribute="bottom" constant="60" id="4bh-Yr-n8a"/>
+                            <constraint firstItem="31j-n9-4LT" firstAttribute="trailing" secondItem="2EV-Ne-S1r" secondAttribute="trailing" constant="15" id="Elj-Em-qUk"/>
+                            <constraint firstItem="2EV-Ne-S1r" firstAttribute="top" secondItem="31j-n9-4LT" secondAttribute="top" constant="10" id="Hn9-FB-S2E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Contact" id="aaF-wT-Av1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="qfp-n6-PBW">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="takePictureButton:" destination="ImK-Vm-a0i" id="dgM-1F-Qxf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="HLd-VE-03v" id="6Q6-DQ-Usi"/>
+                        <outlet property="emailTextField" destination="8nN-UP-cmH" id="w2e-uf-Vx4"/>
+                        <outlet property="nameTextField" destination="r78-dc-wxU" id="fBs-WJ-ckg"/>
+                        <outlet property="phoneTextField" destination="t5x-8j-x6E" id="esb-QN-Wga"/>
+                        <outlet property="profileImage" destination="hBD-5Q-cF3" id="D6a-9A-RSw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4j-dD-8tD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1813" y="72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ysp-Zn-NLm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWd-94-bGq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="yim-Tq-Btf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TYo-4X-Dba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDS-8W-lo7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
